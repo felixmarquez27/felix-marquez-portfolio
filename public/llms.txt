@@ -1,0 +1,45 @@
+# Félix Márquez — Software Engineer & Full Stack Developer
+
+> Desarrollador de software Full Stack orientado a producto y soluciones. Experiencia sólida en React, Next.js, TypeScript, Laravel, Livewire y arquitectura web moderna, conectando la experiencia de usuario con APIs, bases de datos y despliegues estables.
+
+## Datos de Contacto y Perfil
+
+- Nombre: Félix Márquez
+- Rol: Full Stack Developer / Software Engineer
+- Ubicación: Buenos Aires, Argentina
+- Sitio Web: https://felixmarquez.dev/
+- Correo Electrónico: hola@felixmarquez.dev
+- Teléfono / WhatsApp: +54 11 3291-5296
+- LinkedIn: https://www.linkedin.com/in/felix-marquez-developer
+
+## Stack Tecnológico Principal
+
+- Frontend: React, Next.js, TypeScript, Astro, Tailwind CSS, HTML5 semántico, Motion
+- Backend & APIs: Laravel, PHP, Livewire, RESTful APIs, Node.js
+- Bases de Datos & Almacenamiento: MySQL, Microsoft SQL Server, Redis
+- Infraestructura & DevOps: Docker, VPS Ubuntu, Nginx, Git, CI/CD
+- CMS & Ecommerce: WordPress, WooCommerce, integraciones a medida
+
+## Trayectoria Profesional
+
+- Global HITSS Cono Sur (2022 — actualidad): Desarrollador Frontend. Construcción de interfaces escalables con React, Next.js y TypeScript. Integración de microfrontends, consumo de APIs REST y colaboración full stack con Laravel y Livewire bajo metodologías ágiles (Scrum, Jira, Confluence).
+- Actividad Freelance: Desarrollo y arquitectura de aplicaciones web, integración de APIs, sitios corporativos y plataformas ecommerce con React, Next.js, Astro, Laravel y WordPress. Configuración de entornos Docker y VPS.
+- GASEX (2021 — 2022): Webmaster. Mantenimiento y evolución de activos web, desarrollo en React, plataformas WordPress, SEO técnico y administración de hosting.
+
+## Enfoque y Metodología
+
+1. Necesidad y Descubrimiento: Identificación de usuarios, procesos y el problema de negocio real antes de escribir código.
+2. Alcance y Definición: Delimitación de requerimientos, decisiones técnicas y criterios de aceptación.
+3. Arquitectura y Producto: Construcción modular, interfaces comprensibles, APIs sólidas y código mantenible sin sobreingeniería innecesaria.
+4. Entrega y Continuidad: Preparación de ambientes reproducibles con Docker, documentación clara y despliegues seguros.
+5. IA con Criterio Técnico: Uso de modelos y herramientas de IA para investigación, análisis y aceleración del desarrollo, manteniendo siempre el control de calidad, revisión de código y decisiones de arquitectura.
+
+## Secciones del Sitio
+
+- Inicio: https://felixmarquez.dev/#inicio
+- Proyectos Seleccionados: https://felixmarquez.dev/#proyectos
+- Capacidades Técnicas: https://felixmarquez.dev/#capacidades
+- Trayectoria y Experiencia: https://felixmarquez.dev/#experiencia
+- Metodología de Trabajo: https://felixmarquez.dev/#proceso
+- Sobre mí: https://felixmarquez.dev/#sobre-mi
+- Contacto Directo: https://felixmarquez.dev/#contacto
