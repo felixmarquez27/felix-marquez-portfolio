@@ -12,9 +12,23 @@
     "astro": "astro"
   },
   "dependencies": {
-    "astro": "^7.3.2"
+    "@astrojs/sitemap": "^3.7.4",
+    "@tailwindcss/vite": "^4.3.3",
+    "astro": "^7.3.2",
+    "astro-icon": "^1.2.0",
+    "motion": "^13.2.0",
+    "sharp": "^0.35.4",
+    "tailwindcss": "^4.3.3"
   },
   "allowScripts": {
     "esbuild": true
+  },
+  "devDependencies": {
+    "@iconify-json/lucide": "^1.2.130",
+    "@typescript-eslint/parser": "^8.70.0",
+    "eslint": "^10.10.0",
+    "eslint-plugin-astro": "^3.1.0",
+    "prettier": "^3.9.6",
+    "prettier-plugin-astro": "^0.14.1"
   }
 }

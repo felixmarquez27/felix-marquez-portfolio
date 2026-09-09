@@ -1,0 +1,82 @@
+---
+import ArrowLink from "./ui/ArrowLink.astro";
+import SectionHeading from "./ui/SectionHeading.astro";
+
+const steps = [
+  {
+    number: "01",
+    title: "Descubrimiento",
+    description:
+      "Entiendo el contexto, los usuarios, el proceso actual y la necesidad que motiva el proyecto.",
+  },
+  {
+    number: "02",
+    title: "Alcance",
+    description:
+      "Defino prioridades, límites, entregables y las decisiones que deben resolverse antes de desarrollar.",
+  },
+  {
+    number: "03",
+    title: "Arquitectura",
+    description:
+      "Selecciono tecnologías, servicios e integraciones proporcionales al proyecto y a su operación futura.",
+  },
+  {
+    number: "04",
+    title: "Implementación",
+    description:
+      "Construyo por etapas, valido los flujos principales y mantengo visibles las decisiones y los avances.",
+  },
+  {
+    number: "05",
+    title: "Entrega y continuidad",
+    description:
+      "Preparo el despliegue, documento lo necesario y dejo una base que pueda mantenerse y evolucionar.",
+  },
+];
+---
+
+<section class="section-shell overflow-hidden bg-electric text-white">
+  <div
+    class="absolute inset-0 bg-[linear-gradient(120deg,rgba(0,0,0,0.16),transparent_48%)]"
+  >
+  </div>
+  <div class="site-container relative">
+    <SectionHeading
+      eyebrow="Cómo trabajo"
+      title="Primero definimos. Después construimos."
+      description="La velocidad tiene valor cuando existe claridad sobre el problema, el alcance y los criterios que debe cumplir la solución."
+      theme="brand"
+    />
+
+    <ol
+      class="relative mt-16 grid gap-0 border-y border-white/20 lg:grid-cols-5"
+    >
+      {
+        steps.map((step) => (
+          <li
+            class="group relative border-b border-white/20 py-7 lg:border-b-0 lg:border-r lg:px-6 lg:py-9 lg:last:border-r-0"
+            data-motion="item"
+          >
+            <span class="font-mono text-xs text-white/55">{step.number}</span>
+            <div class="my-6 h-px bg-white/20">
+              <div class="h-px w-0 bg-white transition-all duration-500 group-hover:w-full" />
+            </div>
+            <h3 class="text-lg font-semibold">{step.title}</h3>
+            <p class="mt-3 text-sm leading-6 text-white/72">
+              {step.description}
+            </p>
+          </li>
+        ))
+      }
+    </ol>
+
+    <div class="mt-10" data-motion="item">
+      <ArrowLink
+        href="#contacto"
+        label="Plantear una necesidad"
+        variant="secondary"
+      />
+    </div>
+  </div>
+</section>

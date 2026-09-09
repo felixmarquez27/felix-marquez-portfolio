@@ -1,0 +1,251 @@
+---
+import { Icon } from "astro-icon/components";
+import SectionHeading from "./ui/SectionHeading.astro";
+---
+
+<section id="contacto" class="section-shell bg-ink-soft">
+  <div class="site-container">
+    <SectionHeading
+      eyebrow="Contacto"
+      title="Conversemos con contexto"
+      description="Selecciona el motivo del contacto y comparte la información necesaria para entender el punto de partida."
+    />
+
+    <div
+      class="mt-16 grid overflow-hidden border border-line bg-line lg:grid-cols-[0.72fr_1.28fr]"
+    >
+      <aside class="bg-ink p-7 md:p-10" data-motion="item">
+        <p
+          class="font-mono text-[0.65rem] uppercase tracking-[0.18em] text-signal"
+        >
+          Datos directos
+        </p>
+        <dl class="mt-10 space-y-8">
+          <div>
+            <dt class="flex items-center gap-3 text-xs text-copy">
+              <Icon name="lucide:mail" class="size-4 text-signal" /> Correo
+            </dt>
+            <dd class="mt-2 text-sm font-medium text-paper">
+              <a
+                href="mailto:hola@felixmarquez.dev"
+                class="transition hover:text-signal"
+                >hola@felixmarquez.dev</a
+              >
+            </dd>
+          </div>
+          <div>
+            <dt class="flex items-center gap-3 text-xs text-copy">
+              <Icon name="lucide:phone" class="size-4 text-signal" /> Teléfono o WhatsApp
+            </dt>
+            <dd class="mt-2 text-sm font-medium text-paper">
+              <a
+                href="https://wa.me/5491132915296"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="transition hover:text-signal"
+                >+54 11 3291-5296</a
+              >
+            </dd>
+          </div>
+          <div>
+            <dt class="flex items-center gap-3 text-xs text-copy">
+              <Icon name="lucide:linkedin" class="size-4 text-signal" /> LinkedIn
+            </dt>
+            <dd class="mt-2">
+              <a
+                href="https://www.linkedin.com/in/felix-marquez-developer"
+                class="break-all text-sm font-medium text-paper transition hover:text-signal"
+                >linkedin.com/in/felix-marquez-developer</a
+              >
+            </dd>
+          </div>
+        </dl>
+      </aside>
+
+      <form
+        id="contact-form"
+        class="grid gap-6 bg-panel p-7 md:grid-cols-2 md:p-10"
+        aria-label="Formulario de contacto"
+        data-motion="item"
+      >
+        <label class="grid gap-2 text-xs font-medium text-copy-light">
+          Nombre *
+          <input
+            class="min-h-12 border border-line bg-ink px-4 text-sm text-paper placeholder:text-copy/45 focus:border-electric focus:outline-none"
+            type="text"
+            name="nombre"
+            required
+            autocomplete="name"
+            placeholder="Tu nombre"
+          />
+        </label>
+        <label class="grid gap-2 text-xs font-medium text-copy-light">
+          Correo *
+          <input
+            class="min-h-12 border border-line bg-ink px-4 text-sm text-paper placeholder:text-copy/45 focus:border-electric focus:outline-none"
+            type="email"
+            name="correo"
+            required
+            autocomplete="email"
+            placeholder="nombre@empresa.com"
+          />
+        </label>
+        <label class="grid gap-2 text-xs font-medium text-copy-light">
+          Teléfono / WhatsApp (opcional)
+          <input
+            class="min-h-12 border border-line bg-ink px-4 text-sm text-paper placeholder:text-copy/45 focus:border-electric focus:outline-none"
+            type="tel"
+            name="telefono"
+            autocomplete="tel"
+            placeholder="+54 11 ..."
+          />
+        </label>
+        <label class="grid gap-2 text-xs font-medium text-copy-light">
+          Motivo del contacto
+          <select
+            class="min-h-12 border border-line bg-ink px-4 text-sm text-paper focus:border-electric focus:outline-none"
+            name="motivo"
+          >
+            <option>Posición profesional</option>
+            <option>Proyecto freelance</option>
+            <option>Colaboración</option>
+            <option>Otro</option>
+          </select>
+        </label>
+        <label
+          class="grid gap-2 text-xs font-medium text-copy-light md:col-span-2"
+        >
+          Mensaje *
+          <textarea
+            class="min-h-40 resize-y border border-line bg-ink p-4 text-sm leading-6 text-paper placeholder:text-copy/45 focus:border-electric focus:outline-none"
+            name="mensaje"
+            required
+            placeholder="Cuéntame brevemente qué necesitas, el contexto y cualquier dato relevante."
+          ></textarea>
+        </label>
+        <div class="md:col-span-2">
+          <button
+            type="submit"
+            id="contact-submit-btn"
+            class="inline-flex min-h-12 w-full items-center justify-center gap-3 rounded-md bg-electric px-6 text-sm font-bold text-white transition hover:bg-[#3979ff] disabled:cursor-not-allowed disabled:opacity-60 sm:w-auto"
+          >
+            <span id="contact-btn-text">Enviar mensaje</span>
+            <Icon name="lucide:send" id="contact-btn-icon" class="size-4" />
+          </button>
+          <div
+            id="contact-status-success"
+            class="mt-4 hidden items-center gap-3 border border-lime/30 bg-lime/10 p-4 text-sm text-lime"
+            role="status"
+          >
+            <Icon name="lucide:circle-check" class="size-5 shrink-0" />
+            <p id="contact-success-text">
+              Mensaje enviado con éxito. Gracias por compartir el contexto.
+            </p>
+          </div>
+          <div
+            id="contact-status-error"
+            class="mt-4 hidden items-center gap-3 border border-red-500/30 bg-red-500/10 p-4 text-sm text-red-400"
+            role="alert"
+          >
+            <Icon name="lucide:circle-alert" class="size-5 shrink-0" />
+            <p id="contact-error-text">
+              No fue posible enviar el mensaje. Intenta nuevamente o escríbeme
+              directamente a hola@felixmarquez.dev
+            </p>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</section>
+
+<script>
+  import { sendEmail } from "../services/contactService";
+
+  function setupContactForm() {
+    const form = document.getElementById("contact-form") as HTMLFormElement | null;
+    if (!form || form.dataset.bound === "true") return;
+    form.dataset.bound = "true";
+
+    const submitBtn = document.getElementById("contact-submit-btn") as HTMLButtonElement | null;
+    const btnText = document.getElementById("contact-btn-text");
+    const successBox = document.getElementById("contact-status-success");
+    const errorBox = document.getElementById("contact-status-error");
+    const errorText = document.getElementById("contact-error-text");
+
+    form.addEventListener("submit", async (e) => {
+      e.preventDefault();
+
+      if (successBox) {
+        successBox.classList.add("hidden");
+        successBox.classList.remove("flex");
+      }
+      if (errorBox) {
+        errorBox.classList.add("hidden");
+        errorBox.classList.remove("flex");
+      }
+
+      const formData = new FormData(form);
+      const name = ((formData.get("nombre") as string) || "").trim();
+      const email = ((formData.get("correo") as string) || "").trim();
+      const tel = ((formData.get("telefono") as string) || "").trim();
+      const motive = ((formData.get("motivo") as string) || "").trim();
+      const rawMessage = ((formData.get("mensaje") as string) || "").trim();
+
+      if (!name || !email || !rawMessage) {
+        if (errorBox && errorText) {
+          errorText.textContent = "Por favor completa todos los campos requeridos.";
+          errorBox.classList.remove("hidden");
+          errorBox.classList.add("flex");
+        }
+        return;
+      }
+
+      const fullMessage = motive ? `[Motivo: ${motive}]\n\n${rawMessage}` : rawMessage;
+
+      if (submitBtn) {
+        submitBtn.disabled = true;
+      }
+      if (btnText) {
+        btnText.textContent = "Enviando mensaje...";
+      }
+
+      try {
+        const res = await sendEmail(name, email, tel, fullMessage);
+        if (res.success) {
+          form.reset();
+          if (successBox) {
+            successBox.classList.remove("hidden");
+            successBox.classList.add("flex");
+          }
+        } else {
+          if (errorBox) {
+            if (errorText) {
+              errorText.textContent = `${res.message || "Error al enviar el correo"}. Intenta nuevamente o escríbeme directamente a hola@felixmarquez.dev`;
+            }
+            errorBox.classList.remove("hidden");
+            errorBox.classList.add("flex");
+          }
+        }
+      } catch (err) {
+        if (errorBox) {
+          if (errorText) {
+            errorText.textContent = "No fue posible conectar con el servidor. Intenta nuevamente o escríbeme a hola@felixmarquez.dev";
+          }
+          errorBox.classList.remove("hidden");
+          errorBox.classList.add("flex");
+        }
+      } finally {
+        if (submitBtn) {
+          submitBtn.disabled = false;
+        }
+        if (btnText) {
+          btnText.textContent = "Enviar mensaje";
+        }
+      }
+    });
+  }
+
+  setupContactForm();
+  document.addEventListener("astro:page-load", setupContactForm);
+</script>

@@ -1,0 +1,68 @@
+---
+import { Image } from "astro:assets";
+import logoFelix from "../assets/images/felix-marquez-logo-md.webp";
+
+const links = [
+  { label: "Proyectos", href: "#proyectos" },
+  { label: "Capacidades", href: "#capacidades" },
+  { label: "Experiencia", href: "#experiencia" },
+  { label: "Servicios", href: "#servicios" },
+  { label: "Sobre mí", href: "#sobre-mi" },
+  { label: "Contacto", href: "#contacto" },
+];
+---
+
+<footer class="border-t border-line bg-ink py-10">
+  <div class="site-container">
+    <div class="grid gap-10 md:grid-cols-[1fr_auto] md:items-end">
+      <div>
+        <a
+          href="#inicio"
+          class="inline-block transition duration-300 hover:opacity-85"
+          aria-label="Félix Márquez, volver al inicio"
+        >
+          <Image
+            src={logoFelix}
+            alt="Félix Márquez — Software Engineer"
+            width={200}
+            height={36}
+            loading="lazy"
+            class="h-9 w-auto object-contain"
+          />
+        </a>
+        <p class="mt-4 max-w-md text-sm leading-6 text-copy">
+          Desarrollador de software Full Stack orientado a producto y
+          soluciones.
+        </p>
+      </div>
+      <nav
+        class="flex flex-wrap gap-x-5 gap-y-3 md:max-w-xl md:justify-end"
+        aria-label="Navegación del pie"
+      >
+        {
+          links.map((link) => (
+            <a
+              href={link.href}
+              class="text-xs text-copy transition hover:text-paper"
+            >
+              {link.label}
+            </a>
+          ))
+        }
+      </nav>
+    </div>
+    <div
+      class="mt-10 flex flex-col gap-5 border-t border-line pt-7 text-xs text-copy sm:flex-row sm:items-center sm:justify-between"
+    >
+      <p>© 2026 Félix Márquez. Todos los derechos reservados.</p>
+      <div class="flex flex-wrap items-center gap-5">
+        <a
+          href="https://www.linkedin.com/in/felix-marquez-developer"
+          class="transition hover:text-paper">LinkedIn</a
+        >
+        <a href="#contacto" class="transition hover:text-paper">Descargar CV</a>
+        <a href="#inicio" class="transition hover:text-signal">Volver arriba</a>
+      </div>
+    </div>
+  </div>
+</footer>

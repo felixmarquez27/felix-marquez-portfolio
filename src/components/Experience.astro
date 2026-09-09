@@ -1,0 +1,104 @@
+---
+import { Icon } from "astro-icon/components";
+import ArrowLink from "./ui/ArrowLink.astro";
+import SectionHeading from "./ui/SectionHeading.astro";
+
+const experiences = [
+  {
+    company: "Global HITSS Cono Sur",
+    role: "Desarrollador Frontend",
+    period: "2022 — actualidad",
+    items: [
+      "Desarrollo de interfaces con React, Next.js y TypeScript.",
+      "Integración de frontend con APIs REST.",
+      "Participación full stack con Laravel y Livewire.",
+      "Trabajo con arquitecturas de microfrontends.",
+      "Documentación técnica y funcional.",
+      "Colaboración mediante Scrum, Jira y Confluence.",
+    ],
+  },
+  {
+    company: "Actividad freelance",
+    role: "Desarrollador Full Stack y constructor de soluciones",
+    period: "[AÑO_INICIAL_CONFIRMADO] — actualidad",
+    items: [
+      "Desarrollo de aplicaciones y sitios web con React, Next.js, Astro y Laravel.",
+      "Construcción e integración de APIs REST.",
+      "Implementación y mantenimiento de WordPress y WooCommerce.",
+      "Optimización de rendimiento y SEO técnico.",
+      "Configuración de entornos con Docker y VPS Ubuntu.",
+      "Definición de requerimientos, arquitectura, alcance y documentación.",
+    ],
+  },
+  {
+    company: "GASEX",
+    role: "Webmaster",
+    period: "2021 — 2022",
+    items: [
+      "Mantenimiento y evolución de activos web.",
+      "Desarrollo de aplicaciones con React.",
+      "Implementación de sitios y ecommerce con WordPress.",
+      "Optimización de rendimiento y SEO.",
+      "Administración de hosting y documentación de procesos.",
+    ],
+  },
+];
+---
+
+<section id="experiencia" class="section-shell bg-paper text-ink">
+  <div class="site-container grid gap-16 lg:grid-cols-[0.8fr_1.2fr] lg:gap-24">
+    <div class="lg:sticky lg:top-32 lg:self-start">
+      <SectionHeading
+        eyebrow="Trayectoria"
+        title="Experiencia construyendo, integrando y manteniendo productos web"
+        description="Mi recorrido comenzó en proyectos, servicios y trabajo con clientes. Esa experiencia se trasladó al desarrollo de software y hoy me permite conectar necesidades de negocio con decisiones técnicas y ejecución."
+        theme="light"
+      />
+      <div class="mt-9 flex flex-wrap gap-3" data-motion="item">
+        <ArrowLink href="#contacto" label="Descargar CV" />
+        <ArrowLink
+          href="https://www.linkedin.com/in/felix-marquez-developer"
+          label="Ver perfil en LinkedIn"
+          variant="secondary"
+        />
+      </div>
+    </div>
+
+    <div class="border-l border-black/10 pl-6 md:pl-10">
+      {
+        experiences.map((experience) => (
+          <article
+            class="relative border-b border-black/10 py-10 first:pt-0 last:border-b-0"
+            data-motion="item"
+          >
+            <span class="absolute -left-[1.82rem] top-12 size-3 rounded-full border-[3px] border-paper bg-electric md:-left-[2.82rem]" />
+            <div class="flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between">
+              <div>
+                <h3 class="text-2xl font-semibold tracking-[-0.035em]">
+                  {experience.company}
+                </h3>
+                <p class="mt-1 text-sm font-medium text-electric">
+                  {experience.role}
+                </p>
+              </div>
+              <p class="shrink-0 font-mono text-[0.65rem] uppercase tracking-[0.15em] text-black/50">
+                {experience.period}
+              </p>
+            </div>
+            <ul class="mt-7 grid gap-3">
+              {experience.items.map((item) => (
+                <li class="flex gap-3 text-sm leading-6 text-black/65">
+                  <Icon
+                    name="lucide:check"
+                    class="mt-1 size-4 shrink-0 text-electric"
+                  />
+                  {item}
+                </li>
+              ))}
+            </ul>
+          </article>
+        ))
+      }
+    </div>
+  </div>
+</section>

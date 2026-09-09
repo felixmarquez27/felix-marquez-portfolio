@@ -1,0 +1,56 @@
+---
+export interface Props {
+  eyebrow: string;
+  title: string;
+  description?: string;
+  align?: "left" | "center";
+  theme?: "dark" | "light" | "brand";
+}
+
+const {
+  eyebrow,
+  title,
+  description,
+  align = "left",
+  theme = "dark",
+} = Astro.props;
+---
+
+<header
+  class:list={["space-y-6", align === "center" && "mx-auto text-center"]}
+  data-motion="heading"
+>
+  <p
+    class:list={[
+      "eyebrow",
+      align === "center" && "justify-center",
+      theme === "light" && "text-electric",
+      theme === "brand" && "text-white/70",
+    ]}
+  >
+    {eyebrow}
+  </p>
+  <h2
+    class:list={[
+      "section-title",
+      align === "center" && "mx-auto",
+      theme === "light" ? "text-ink" : "text-paper",
+    ]}
+  >
+    {title}
+  </h2>
+  {
+    description && (
+      <p
+        class:list={[
+          "body-copy",
+          align === "center" && "mx-auto",
+          theme === "light" && "text-black/60",
+          theme === "brand" && "text-white/75",
+        ]}
+      >
+        {description}
+      </p>
+    )
+  }
+</header>

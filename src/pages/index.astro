@@ -1,11 +1,81 @@
 ---
-import Welcome from '../components/Welcome.astro';
-import Layout from '../layouts/Layout.astro';
+import About from "../components/About.astro";
+import Capabilities from "../components/Capabilities.astro";
+import Contact from "../components/Contact.astro";
+import Experience from "../components/Experience.astro";
+import FinalCta from "../components/FinalCta.astro";
+import Footer from "../components/Footer.astro";
+import Hero from "../components/Hero.astro";
+import Navbar from "../components/Navbar.astro";
+import Process from "../components/Process.astro";
+import Projects from "../components/Projects.astro";
+import Services from "../components/Services.astro";
+import WorkModes from "../components/WorkModes.astro";
+import Layout from "../layouts/Layout.astro";
 
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+const jsonLd = JSON.stringify({
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Person",
+      "@id": "https://felixmarquez.dev/#person",
+      name: "Félix Márquez",
+      url: "https://felixmarquez.dev/",
+      email: "mailto:hola@felixmarquez.dev",
+      telephone: "+541132915296",
+      jobTitle: "Desarrollador de software Full Stack orientado a producto",
+      sameAs: ["https://www.linkedin.com/in/felix-marquez-developer"],
+      knowsAbout: [
+        "React",
+        "Next.js",
+        "TypeScript",
+        "Laravel",
+        "Livewire",
+        "API REST",
+        "Docker",
+        "WordPress",
+        "WooCommerce",
+        "Arquitectura de soluciones",
+      ],
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://felixmarquez.dev/#website",
+      url: "https://felixmarquez.dev/",
+      name: "Félix Márquez",
+      description:
+        "Portfolio profesional de Félix Márquez, desarrollador de software Full Stack orientado a producto y soluciones.",
+      inLanguage: "es",
+      publisher: { "@id": "https://felixmarquez.dev/#person" },
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://felixmarquez.dev/#webpage",
+      url: "https://felixmarquez.dev/",
+      name: "Félix Márquez | Full Stack, React, Next.js y Laravel",
+      description:
+        "Desarrollador Full Stack orientado a producto. React, Next.js y Laravel para construir aplicaciones, integraciones y soluciones web completas.",
+      isPartOf: { "@id": "https://felixmarquez.dev/#website" },
+      about: { "@id": "https://felixmarquez.dev/#person" },
+      inLanguage: "es",
+    },
+  ],
+});
 ---
 
-<Layout>
-	<Welcome />
+<Layout jsonLd={jsonLd}>
+  <Navbar />
+  <main id="contenido">
+    <Hero />
+    <WorkModes />
+    <Capabilities />
+    <Projects />
+    <Experience />
+    <Services />
+    <Process />
+    <About />
+    <FinalCta />
+    <Contact />
+  </main>
+  <Footer />
 </Layout>

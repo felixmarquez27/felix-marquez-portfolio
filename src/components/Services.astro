@@ -1,0 +1,94 @@
+---
+import { Icon } from "astro-icon/components";
+import ArrowLink from "./ui/ArrowLink.astro";
+import SectionHeading from "./ui/SectionHeading.astro";
+
+const services = [
+  {
+    number: "01",
+    title: "Software a medida",
+    description:
+      "Aplicaciones web, paneles, sistemas internos y flujos digitales construidos alrededor de un proceso específico.",
+    metaLabel: "Puede incluir",
+    meta: "definición funcional · UX · frontend · backend · bases de datos · despliegue",
+    icon: "lucide:braces",
+  },
+  {
+    number: "02",
+    title: "Páginas web de alto rendimiento",
+    description:
+      "Sitios profesionales, landing pages y plataformas de contenido enfocados en claridad, velocidad, SEO técnico y mantenimiento.",
+    metaLabel: "Tecnologías posibles",
+    meta: "Astro · Next.js · WordPress",
+    icon: "lucide:gauge",
+  },
+  {
+    number: "03",
+    title: "Ecommerce",
+    description:
+      "Creación, configuración y evolución de tiendas online, catálogos, pagos, contenido y procesos comerciales.",
+    metaLabel: "Tecnologías posibles",
+    meta: "WooCommerce · WordPress · integraciones externas",
+    icon: "lucide:shopping-bag",
+  },
+  {
+    number: "04",
+    title: "Integraciones y evolución",
+    description:
+      "Conexión entre aplicaciones, APIs, bases de datos y sistemas existentes sin reemplazar innecesariamente lo que ya funciona.",
+    metaLabel: "Puede incluir",
+    meta: "APIs REST · autenticación · sistemas legacy · migración gradual · documentación",
+    icon: "lucide:plug-zap",
+  },
+];
+---
+
+<section id="servicios" class="section-shell bg-ink">
+  <div class="site-container">
+    <SectionHeading
+      eyebrow="Proyectos freelance"
+      title="Desarrollo a medida cuando el problema lo requiere. Herramientas existentes cuando resuelven mejor."
+      description="La tecnología se elige después de comprender el objetivo, los usuarios, las restricciones y la forma en que la solución deberá mantenerse."
+    />
+
+    <div
+      class="mt-16 grid gap-px overflow-hidden border border-line bg-line md:grid-cols-2"
+    >
+      {
+        services.map((service) => (
+          <article
+            class="group relative min-h-[25rem] overflow-hidden bg-ink-soft p-7 transition duration-500 hover:bg-panel md:p-10"
+            data-motion="item"
+          >
+            <div class="flex items-center justify-between">
+              <span class="font-mono text-xs text-copy/45">
+                {service.number}
+              </span>
+              <div class="grid size-12 place-items-center border border-line text-signal transition duration-500 group-hover:border-signal/40 group-hover:bg-signal/5">
+                <Icon name={service.icon} class="size-5" />
+              </div>
+            </div>
+            <h3 class="mt-12 max-w-md text-3xl font-semibold leading-[1.05] tracking-[-0.045em] text-paper">
+              {service.title}
+            </h3>
+            <p class="mt-5 max-w-lg text-base leading-7 text-copy">
+              {service.description}
+            </p>
+            <div class="absolute inset-x-7 bottom-7 border-t border-line pt-5 md:inset-x-10 md:bottom-10">
+              <p class="font-mono text-[0.6rem] uppercase tracking-[0.16em] text-signal">
+                {service.metaLabel}
+              </p>
+              <p class="mt-2 text-xs leading-5 text-copy-light">
+                {service.meta}
+              </p>
+            </div>
+          </article>
+        ))
+      }
+    </div>
+
+    <div class="mt-10" data-motion="item">
+      <ArrowLink href="#contacto" label="Consultar un proyecto" />
+    </div>
+  </div>
+</section>

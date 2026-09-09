@@ -1,23 +1,63 @@
-<!doctype html>
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro Basics</title>
-	</head>
-	<body>
-		<slot />
-	</body>
-</html>
+---
+import "../styles/global.css";
 
-<style>
-	html,
-	body {
-		margin: 0;
-		width: 100%;
-		height: 100%;
-	}
-</style>
+export interface Props {
+  title?: string;
+  description?: string;
+  canonical?: string;
+  ogTitle?: string;
+  ogDescription?: string;
+  jsonLd?: string;
+}
+
+const {
+  title = "Félix Márquez | Full Stack, React, Next.js y Laravel",
+  description = "Desarrollador Full Stack orientado a producto. React, Next.js y Laravel para construir aplicaciones, integraciones y soluciones web completas.",
+  canonical = "https://felixmarquez.dev/",
+  ogTitle = "Félix Márquez — Desarrollador Full Stack",
+  ogDescription = "Producto, frontend, backend, integraciones y entrega dentro de una misma visión de software.",
+  jsonLd,
+} = Astro.props;
+---
+
+<!doctype html>
+<html lang="es" class="scroll-smooth">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <meta name="generator" content={Astro.generator} />
+    <meta name="description" content={description} />
+    <meta name="theme-color" content="#06080c" />
+    <link rel="canonical" href={canonical} />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="es_AR" />
+    <meta property="og:title" content={ogTitle} />
+    <meta property="og:description" content={ogDescription} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:image" content={new URL("/apple-touch-icon.png", canonical).href} />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:image" content={new URL("/apple-touch-icon.png", canonical).href} />
+    <title>{title}</title>
+    {jsonLd && <script type="application/ld+json" set:html={jsonLd} />}
+    <script is:inline>
+      if (!window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+        document.documentElement.classList.add("motion-ready");
+      }
+    </script>
+  </head>
+  <body
+    class="min-h-screen overflow-x-hidden bg-ink text-paper antialiased selection:bg-signal selection:text-ink"
+  >
+    <a class="skip-link" href="#contenido">Saltar al contenido</a>
+    <slot />
+    <script>
+      import { initMotionAnimations } from "../scripts/animations";
+
+      initMotionAnimations();
+      document.addEventListener("astro:page-load", initMotionAnimations);
+    </script>
+  </body>
+</html>

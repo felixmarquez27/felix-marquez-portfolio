@@ -1,0 +1,35 @@
+---
+import { Icon } from "astro-icon/components";
+
+export interface Props {
+  href: string;
+  label: string;
+  variant?: "primary" | "secondary" | "text" | "textDark";
+  download?: boolean;
+}
+
+const { href, label, variant = "primary", download = false } = Astro.props;
+const classes = {
+  primary:
+    "bg-electric text-white hover:bg-[#3979ff] border-electric shadow-[0_12px_35px_rgba(36,107,253,0.22)]",
+  secondary:
+    "border-line bg-white/[0.025] text-paper hover:border-signal/50 hover:bg-white/[0.055]",
+  text: "border-transparent px-0 text-copy-light hover:text-signal",
+  textDark: "border-transparent px-0 text-electric hover:text-ink",
+};
+---
+
+<a
+  href={href}
+  download={download}
+  class:list={[
+    "group inline-flex min-h-12 items-center justify-center gap-3 rounded-md border px-5 text-sm font-semibold transition duration-300",
+    classes[variant],
+  ]}
+>
+  {label}
+  <Icon
+    name="lucide:arrow-up-right"
+    class="size-4 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
+  />
+</a>

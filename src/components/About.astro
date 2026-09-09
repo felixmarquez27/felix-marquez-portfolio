@@ -1,0 +1,99 @@
+---
+import { Icon } from "astro-icon/components";
+import ArrowLink from "./ui/ArrowLink.astro";
+import SectionHeading from "./ui/SectionHeading.astro";
+
+const principles = [
+  {
+    title: "Definición antes de ejecución",
+    description:
+      "Aclaro el qué, el porqué, los límites y los criterios de aceptación antes de convertir una idea en tareas.",
+    icon: "lucide:list-checks",
+  },
+  {
+    title: "Eficacia antes que complejidad",
+    description:
+      "Prefiero patrones conocidos y herramientas maduras cuando resuelven correctamente el problema.",
+    icon: "lucide:scale",
+  },
+  {
+    title: "Visión de producto",
+    description:
+      "El software no solo debe funcionar: debe ser comprensible, útil y coherente con la operación real.",
+    icon: "lucide:focus",
+  },
+  {
+    title: "IA con responsabilidad técnica",
+    description:
+      "Utilizo inteligencia artificial para investigar, analizar, documentar y acelerar el desarrollo. La revisión, las decisiones y la mantenibilidad continúan siendo mi responsabilidad.",
+    icon: "lucide:brain-circuit",
+  },
+];
+---
+
+<section id="sobre-mi" class="section-shell bg-paper text-ink">
+  <div class="site-container">
+    <SectionHeading
+      eyebrow="Criterio antes que herramientas"
+      title="Mi trabajo no empieza en el editor de código"
+      theme="light"
+    />
+
+    <div class="mt-14 grid gap-12 lg:grid-cols-[0.92fr_1.08fr] lg:gap-20">
+      <div
+        class="space-y-6 text-lg leading-8 text-black/65"
+        data-motion="media"
+      >
+        <p>
+          Mi base profesional está en frontend con React y Next.js. A medida que
+          los proyectos necesitaron APIs, autenticación, bases de datos,
+          infraestructura e integraciones, amplié mi trabajo hacia Laravel y la
+          implementación full stack.
+        </p>
+        <p>
+          Antes de consolidarme como desarrollador trabajé en ventas de
+          servicios y dirección de proyectos. Esa experiencia sigue presente en
+          mi forma de trabajar: puedo conversar con personas técnicas y no
+          técnicas, hacer preguntas, ordenar necesidades y explicar decisiones
+          sin esconderme detrás de la tecnología.
+        </p>
+        <p class="border-l-2 border-electric pl-6 font-medium text-ink">
+          No busco agregar capas porque estén de moda. Busco construir una
+          solución que tenga sentido para el usuario, el negocio y el equipo que
+          deberá mantenerla.
+        </p>
+        <div class="pt-3">
+          <ArrowLink
+            href="#experiencia"
+            label="Ver mi experiencia"
+            variant="textDark"
+          />
+        </div>
+      </div>
+
+      <div
+        class="grid gap-px overflow-hidden border border-black/10 bg-black/10 sm:grid-cols-2"
+      >
+        {
+          principles.map((principle) => (
+            <article
+              class="group bg-paper p-6 transition duration-500 hover:bg-white md:p-8"
+              data-motion="item"
+            >
+              <Icon
+                name={principle.icon}
+                class="size-6 text-electric transition duration-500 group-hover:scale-110"
+              />
+              <h3 class="mt-8 text-xl font-semibold tracking-[-0.03em]">
+                {principle.title}
+              </h3>
+              <p class="mt-4 text-sm leading-6 text-black/60">
+                {principle.description}
+              </p>
+            </article>
+          ))
+        }
+      </div>
+    </div>
+  </div>
+</section>

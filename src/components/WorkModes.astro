@@ -1,0 +1,91 @@
+---
+import { Icon } from "astro-icon/components";
+import ArrowLink from "./ui/ArrowLink.astro";
+import SectionHeading from "./ui/SectionHeading.astro";
+
+const modes = [
+  {
+    label: "Para equipos de producto",
+    title: "Desarrollo con visión más allá de la interfaz",
+    description:
+      "Puedo participar en la construcción y evolución de productos con React, Next.js y TypeScript, conectando el frontend con APIs, lógica de negocio y decisiones de arquitectura.",
+    items: [
+      "Desarrollo de interfaces y flujos de producto.",
+      "Integración y construcción de APIs REST.",
+      "Participación en soluciones con Laravel y Livewire.",
+      "Trabajo con microfrontends y aplicaciones modulares.",
+      "Documentación y colaboración con equipos técnicos y funcionales.",
+    ],
+    cta: "Revisar mi experiencia",
+    href: "#experiencia",
+    index: "A",
+  },
+  {
+    label: "Para empresas y profesionales",
+    title: "Desarrollo web alrededor de una necesidad real",
+    description:
+      "Puedo ayudarte a definir y construir una aplicación, un sitio web, un ecommerce o una integración, eligiendo entre desarrollo a medida y herramientas existentes según el alcance del proyecto.",
+    items: [
+      "Aplicaciones web a medida.",
+      "Sitios rápidos, claros y fáciles de mantener.",
+      "Ecommerce y plataformas basadas en WordPress.",
+      "Integraciones con APIs y sistemas existentes.",
+      "Despliegue y documentación técnica.",
+    ],
+    cta: "Contarme el proyecto",
+    href: "#contacto",
+    index: "B",
+  },
+];
+---
+
+<section class="section-shell bg-paper text-ink">
+  <div class="site-container">
+    <SectionHeading
+      eyebrow="Dos contextos. Un mismo enfoque."
+      title="Puedo incorporarme a un equipo o resolver un proyecto concreto"
+      description="En ambos casos empiezo por entender el problema, definir los límites y elegir una solución proporcional a la necesidad."
+      theme="light"
+    />
+
+    <div
+      class="mt-16 grid gap-px overflow-hidden border border-black/10 bg-black/10 lg:grid-cols-2"
+    >
+      {
+        modes.map((mode) => (
+          <article
+            class="group relative bg-paper p-7 transition duration-500 hover:bg-white md:p-10"
+            data-motion="item"
+          >
+            <div class="flex items-center justify-between border-b border-black/10 pb-5">
+              <p class="font-mono text-[0.68rem] font-semibold uppercase tracking-[0.17em] text-electric">
+                {mode.label}
+              </p>
+              <span class="font-mono text-xs text-black/35">{mode.index}</span>
+            </div>
+            <h3 class="mt-8 max-w-xl text-3xl font-semibold leading-[1.03] tracking-[-0.045em] md:text-4xl">
+              {mode.title}
+            </h3>
+            <p class="mt-5 text-base leading-7 text-black/60">
+              {mode.description}
+            </p>
+            <ul class="mt-8 space-y-4">
+              {mode.items.map((item) => (
+                <li class="flex gap-3 text-sm leading-6 text-black/70">
+                  <Icon
+                    name="lucide:arrow-right"
+                    class="mt-1 size-4 shrink-0 text-electric transition group-hover:translate-x-0.5"
+                  />
+                  {item}
+                </li>
+              ))}
+            </ul>
+            <div class="mt-9">
+              <ArrowLink href={mode.href} label={mode.cta} variant="textDark" />
+            </div>
+          </article>
+        ))
+      }
+    </div>
+  </div>
+</section>
