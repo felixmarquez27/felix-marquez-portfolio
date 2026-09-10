@@ -43,36 +43,40 @@ const stages = [
   class="relative isolate overflow-hidden border-b border-line pt-20"
   data-motion="hero"
 >
+  <!-- Background Glows -->
   <div
     class="surface-grid absolute inset-0 -z-30 opacity-40 [mask-image:linear-gradient(to_bottom,black_0%,black_70%,transparent_100%)]"
   >
   </div>
   <div
-    class="absolute left-[12%] top-40 -z-20 size-[34rem] rounded-full bg-electric/10 blur-[140px]"
+    class="absolute -top-32 left-1/4 -z-20 size-96 rounded-full bg-electric/10 blur-3xl"
   >
   </div>
   <div
-    class="absolute right-[5%] top-24 -z-20 size-[32rem] rounded-full bg-signal/[0.07] blur-[150px]"
+    class="absolute top-20 right-10 -z-20 size-96 rounded-full bg-signal/5 blur-3xl"
   >
   </div>
 
   <div
-    class="site-container grid min-h-[calc(100svh-5rem)] items-center gap-12 py-16 lg:grid-cols-[1.05fr_0.95fr] lg:py-20"
+    class="site-container block md:grid items-center gap-12 py-12 lg:grid-cols-2 lg:py-20"
   >
-    <div class="relative z-10 max-w-3xl">
-      <p class="eyebrow mb-7" data-motion-hero-item>
+    <!-- Left Column: Copy & Actions -->
+    <div class="relative z-10">
+      <p class="eyebrow mb-4 sm:mb-6" data-motion-hero-item>
         React · Next.js · TypeScript · Laravel
       </p>
+
       <h1
-        class="max-w-[14ch] text-[clamp(2.9rem,5.2vw,5.4rem)] font-semibold leading-[0.92] tracking-[-0.065em] text-paper"
+        class="text-4xl sm:text-5xl lg:text-6xl font-semibold tracking-tight text-paper leading-tight lg:leading-none max-w-2xl"
         data-motion-hero-item
       >
-        Desarrollador Full Stack <span class="text-gradient"
-          >orientado a producto</span
-        > y soluciones
+        Desarrollador Full Stack{" "}
+        <span class="block text-gradient">orientado a producto</span>
+        y soluciones
       </h1>
+
       <div
-        class="mt-8 max-w-2xl space-y-4 text-base leading-7 text-copy md:text-lg"
+        class="mt-6 max-w-xl space-y-4 text-base sm:text-lg text-copy leading-relaxed"
         data-motion-hero-item
       >
         <p>
@@ -86,13 +90,15 @@ const stages = [
           Docker y sistemas existentes.
         </p>
       </div>
-      <div class="mt-9 flex flex-col gap-3 sm:flex-row" data-motion-hero-item>
+
+      <div class="mt-8 flex flex-col gap-3 sm:flex-row" data-motion-hero-item>
         <ArrowLink href="#proyectos" label="Ver proyectos" />
         <ArrowLink href="#contacto" label="Descargar CV" variant="secondary" />
       </div>
+
       <a
         href="#contacto"
-        class="group mt-7 inline-flex items-center gap-3 text-sm text-copy transition hover:text-paper"
+        class="group mt-6 inline-flex items-center gap-2.5 text-xs sm:text-sm text-copy transition hover:text-paper"
         data-motion-hero-item
       >
         <span
@@ -104,19 +110,24 @@ const stages = [
           class="size-4 transition group-hover:translate-x-1"
         />
       </a>
-      <div class="mt-9 max-w-2xl" data-motion-hero-item>
+
+      <div class="mt-8 max-w-xl" data-motion-hero-item>
         <TechStack />
       </div>
     </div>
 
-    <div class="relative min-h-[32rem] lg:min-h-[44rem]" data-motion-hero-media>
-      <div
-        class="absolute inset-x-[-8%] bottom-0 isolate mx-auto h-full max-w-[40rem]"
-      >
+    <!-- Right Column: Portrait & Badge -->
+    <div
+      class="relative flex justify-center lg:justify-end"
+      data-motion-hero-media
+    >
+      <div class="relative w-full max-w-sm sm:max-w-md lg:max-w-lg">
+        <!-- Radial blur behind portrait -->
         <div
-          class="absolute inset-x-[5%] bottom-[7%] z-0 h-[82%] rounded-full bg-[radial-gradient(ellipse_at_52%_36%,rgba(90,133,176,0.27)_0%,rgba(36,107,253,0.12)_40%,transparent_72%)] blur-2xl"
+          class="absolute inset-0 -z-10 rounded-full bg-electric/15 blur-3xl"
         >
         </div>
+
         <Image
           src={felixImage}
           alt="Retrato profesional de Félix Márquez"
@@ -126,80 +137,48 @@ const stages = [
           format="png"
           loading="eager"
           fetchpriority="high"
-          class="relative z-10 h-full w-full object-contain object-bottom"
+          class="w-full h-auto object-contain mt-10 md:mt-0"
         />
+
+        <!-- Soft bottom gradient to merge into dark background -->
         <div
-          class="absolute inset-x-0 bottom-0 z-20 h-28 bg-gradient-to-t from-ink via-ink/25 to-transparent"
+          class="absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-ink to-transparent"
         >
         </div>
-      </div>
-      <div
-        class="absolute bottom-8 left-0 flex items-center gap-4 border border-white/10 bg-ink/85 px-5 py-3.5 backdrop-blur-md lg:-left-8"
-      >
-        <Image
-          src={isoFelix}
-          alt="Isotipo Félix Márquez"
-          width={36}
-          height={36}
-          class="size-9 shrink-0 object-contain"
-          loading="eager"
-        />
-        <div>
-          <p
-            class="font-mono text-[0.62rem] uppercase tracking-[0.22em] text-signal"
-          >
-            Producto + ingeniería
-          </p>
-          <p class="mt-1 text-sm font-semibold text-paper">
-            Una misma visión, de punta a punta.
-          </p>
+
+        <!-- Floating Badge -->
+        <div
+          class="absolute bottom-4 left-4 right-4 sm:left-2 sm:right-auto lg:-left-6 flex items-center gap-3 border border-white/10 bg-ink/90 p-3.5 backdrop-blur shadow-panel"
+        >
+          <Image
+            src={isoFelix}
+            alt="Isotipo Félix Márquez"
+            width={36}
+            height={36}
+            class="size-8 shrink-0 object-contain"
+            loading="eager"
+          />
+          <div>
+            <p
+              class="font-mono text-[0.62rem] uppercase tracking-widest text-signal"
+            >
+              Producto + ingeniería
+            </p>
+            <p class="mt-0.5 text-xs sm:text-sm font-semibold text-paper">
+              Una misma visión, de punta a punta.
+            </p>
+          </div>
         </div>
       </div>
-      <div
-        class="absolute right-0 top-12 hidden h-28 w-px bg-gradient-to-b from-signal to-transparent lg:block"
-      >
-      </div>
+
+      <!-- Subtle vertical accent on desktop -->
       <p
-        class="absolute right-[-2.4rem] top-48 hidden rotate-90 font-mono text-[0.58rem] uppercase tracking-[0.35em] text-copy/60 lg:block"
+        class="absolute -right-6 top-32 hidden rotate-90 font-mono text-[0.6rem] uppercase tracking-widest text-copy/40 xl:block"
       >
         Buenos Aires · Argentina
       </p>
     </div>
   </div>
 
-  <div class="site-container relative z-10 -mb-px pb-14 lg:pb-20">
-    <div
-      class="grid overflow-hidden border border-line bg-ink-soft/90 shadow-panel backdrop-blur md:grid-cols-2 xl:grid-cols-4"
-      data-motion="media"
-    >
-      {
-        stages.map((stage) => (
-          <article
-            class="group relative min-h-56 border-b border-line p-6 transition duration-500 hover:bg-panel md:nth-[2n+1]:border-r xl:border-b-0 xl:border-r xl:last:border-r-0"
-            tabindex="0"
-          >
-            <div class="flex items-center justify-between">
-              <span class="font-mono text-xs text-copy/60">{stage.number}</span>
-              <Icon
-                name={stage.icon}
-                class="size-5 text-signal transition duration-500 group-hover:scale-110"
-              />
-            </div>
-            <div class="absolute left-6 right-6 top-[4.8rem] h-px bg-line">
-              <span class="absolute -top-1 left-0 size-2 rounded-full bg-electric transition-all duration-500 group-hover:left-[calc(100%-0.5rem)] group-hover:bg-signal" />
-            </div>
-            <h2 class="mt-12 text-lg font-semibold text-paper">
-              {stage.title}
-            </h2>
-            <p class="mt-3 text-sm leading-6 text-copy">{stage.description}</p>
-          </article>
-        ))
-      }
-    </div>
-    <p
-      class="mt-5 text-center font-mono text-[0.62rem] uppercase tracking-[0.2em] text-copy/60"
-    >
-      Producto · Frontend · Backend · Integraciones · Entrega
-    </p>
-  </div>
+ 
 </section>

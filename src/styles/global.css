@@ -24,10 +24,12 @@
   }
   html {
     background: var(--color-ink);
+    overflow-x: clip;
   }
   body {
     margin: 0;
     font-family: var(--font-sans);
+    overflow-x: clip;
   }
   a,
   button,
@@ -50,7 +52,9 @@
 
   .eyebrow {
     display: inline-flex;
+    flex-wrap: wrap;
     align-items: center;
+    max-width: 100%;
     gap: 0.65rem;
     font-family: var(--font-mono);
     font-size: 0.68rem;
@@ -70,16 +74,16 @@
 
   .section-shell {
     position: relative;
-    padding-block: clamp(5.5rem, 10vw, 9rem);
+    padding-block: clamp(3.75rem, 7.5vw, 8.5rem);
     border-top: 1px solid color-mix(in srgb, var(--color-line) 75%, transparent);
   }
 
   .section-title {
     max-width: 53rem;
-    font-size: clamp(2.25rem, 5.3vw, 4.8rem);
+    font-size: clamp(1.85rem, 4.5vw, 4.2rem);
     font-weight: 650;
-    letter-spacing: -0.055em;
-    line-height: 0.98;
+    letter-spacing: -0.045em;
+    line-height: 1.04;
   }
 
   .body-copy {
@@ -152,7 +156,13 @@ html.motion-ready [data-motion="media"] {
   transform: translateY(30px) scale(0.98);
 }
 
-@media (min-width: 768px) {
+@media (min-width: 640px) {
+  .site-container {
+    width: min(100% - 3rem, 80rem);
+  }
+}
+
+@media (min-width: 1024px) {
   .site-container {
     width: min(100% - 4rem, 80rem);
   }

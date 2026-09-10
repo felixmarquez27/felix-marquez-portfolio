@@ -45,13 +45,13 @@ const projects = [
       description="Cada caso documentará el problema, mi participación, las decisiones técnicas, el estado real del producto y lo que puede verificarse públicamente."
     />
 
-    <div class="mt-16 grid gap-5 lg:grid-cols-12">
+    <div class="mt-12 sm:mt-16 grid gap-5 md:grid-cols-2 lg:grid-cols-12">
       {
         projects.map((project, index) => (
           <article
             class:list={[
-              "group relative flex min-h-[31rem] flex-col overflow-hidden border border-line bg-ink p-7 transition duration-500 hover:-translate-y-1 hover:border-signal/35 md:p-9",
-              index === 0 ? "lg:col-span-6" : "lg:col-span-3",
+              "group relative flex min-h-[26rem] sm:min-h-[28rem] md:min-h-[31rem] flex-col overflow-hidden border border-line bg-ink p-6 sm:p-7 md:p-9 transition duration-500 hover:-translate-y-1 hover:border-signal/35",
+              index === 0 ? "md:col-span-2 lg:col-span-6" : "md:col-span-1 lg:col-span-3",
             ]}
             data-motion="item"
           >
@@ -70,7 +70,7 @@ const projects = [
             <p
               class:list={[
                 "font-medium leading-snug tracking-[-0.03em] text-paper",
-                index === 0 ? "text-3xl md:text-4xl" : "text-2xl",
+                index === 0 ? "text-2xl sm:text-3xl md:text-4xl" : "text-xl sm:text-2xl",
               ]}
             >
               {project.description}
