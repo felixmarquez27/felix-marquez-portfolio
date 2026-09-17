@@ -145,15 +145,20 @@ html.motion-ready [data-motion-hero-media] {
   transform: translateY(24px) scale(0.97);
 }
 
-html.motion-ready [data-motion="heading"],
-html.motion-ready [data-motion="item"],
-html.motion-ready [data-motion="media"] {
+/*
+ * Las superficies interactivas quedan estáticas desde el primer pintado.
+ * Solo entra el contenido editorial; así no hay tarjetas vacías, franjas ni
+ * desplazamientos de bloques completos antes de que se active Motion.
+ */
+html.motion-ready [data-motion="heading"] > *,
+html.motion-ready [data-motion="media"] > * {
   opacity: 0;
-  transform: translateY(34px);
+  transform: translateY(16px);
+  will-change: opacity, transform;
 }
 
-html.motion-ready [data-motion="media"] {
-  transform: translateY(30px) scale(0.98);
+html.motion-ready [data-motion="heading"] > * {
+  transform: translateY(12px);
 }
 
 @media (min-width: 640px) {

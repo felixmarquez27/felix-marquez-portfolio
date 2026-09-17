@@ -5,10 +5,22 @@ export interface Props {
   href: string;
   label: string;
   variant?: "primary" | "secondary" | "text" | "textDark";
-  download?: boolean;
+  download?: boolean | string;
+  target?: string;
+  rel?: string;
+  icon?: string;
 }
 
-const { href, label, variant = "primary", download = false } = Astro.props;
+const {
+  href,
+  label,
+  variant = "primary",
+  download,
+  target,
+  rel = target === "_blank" ? "noopener noreferrer" : undefined,
+  icon,
+} = Astro.props;
+
 const classes = {
   primary:
     "bg-electric text-white hover:bg-[#3979ff] border-electric shadow-[0_12px_35px_rgba(36,107,253,0.22)]",
@@ -17,11 +29,16 @@ const classes = {
   text: "border-transparent px-0 text-copy-light hover:text-signal",
   textDark: "border-transparent px-0 text-electric hover:text-ink",
 };
+
+const iconName = icon ?? (download ? "lucide:download" : "lucide:arrow-up-right");
+const isDownload = Boolean(download);
 ---
 
 <a
   href={href}
   download={download}
+  target={target}
+  rel={rel}
   class:list={[
     "group inline-flex min-h-12 items-center justify-center gap-3 rounded-md border px-5 text-sm font-semibold transition duration-300",
     classes[variant],
@@ -29,7 +46,13 @@ const classes = {
 >
   {label}
   <Icon
-    name="lucide:arrow-up-right"
-    class="size-4 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
+    name={iconName}
+    class:list={[
+      "size-4 transition-transform duration-300",
+      isDownload
+        ? "group-hover:translate-y-0.5"
+        : "group-hover:translate-x-0.5 group-hover:-translate-y-0.5",
+    ]}
   />
 </a>
+

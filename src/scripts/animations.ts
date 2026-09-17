@@ -1,5 +1,17 @@
 import { animate, inView, stagger } from "motion";
 
+function animateContents(element: HTMLElement, ease: readonly number[]) {
+  const contents = Array.from(element.children) as HTMLElement[];
+
+  if (!contents.length) return;
+
+  animate(
+    contents,
+    { opacity: 1, y: 0 },
+    { duration: 0.58, delay: stagger(0.045), ease },
+  );
+}
+
 export function initMotionAnimations() {
   if (typeof window === "undefined") return;
   if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
@@ -35,7 +47,7 @@ export function initMotionAnimations() {
 
   document
     .querySelectorAll<HTMLElement>(
-      '[data-motion="heading"], [data-motion="item"], [data-motion="media"]',
+      '[data-motion="heading"], [data-motion="media"]',
     )
     .forEach((element) => {
       if (element.dataset.motionBound === "true") return;
@@ -43,13 +55,11 @@ export function initMotionAnimations() {
       inView(
         element,
         () => {
-          animate(
-            element,
-            { opacity: 1, y: 0, scale: 1 },
-            { duration: 0.8, ease },
-          );
+          if (element.dataset.animated === "true") return;
+          element.dataset.animated = "true";
+          animateContents(element, ease);
         },
-        { amount: 0.16, margin: "0px 0px -60px 0px" },
+        { amount: 0.2, margin: "0px 0px -48px 0px" },
       );
     });
 }
