@@ -1,0 +1,17 @@
+---
+export async function getStaticPaths() {
+  const posts = import.meta.glob("../../articles/*.md", { eager: true });
+  return Object.entries(posts).map(([path, post]: [string, any]) => {
+    const slug = path.split("/").pop()?.replace(".md", "");
+    return {
+      params: { slug },
+      props: { post },
+    };
+  });
+}
+
+const { post } = Astro.props;
+const { Content } = post;
+---
+
+<Content />

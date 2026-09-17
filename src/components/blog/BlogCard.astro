@@ -1,0 +1,86 @@
+---
+import { Icon } from "astro-icon/components";
+import type { BlogPost } from "../../services/blogService";
+
+interface Props {
+  post: BlogPost;
+}
+
+const { post } = Astro.props;
+
+const pubDate = new Date(post.frontmatter.pubDate).toLocaleDateString("es-AR", {
+  year: "numeric",
+  month: "short",
+  day: "numeric",
+});
+
+const coverSrc = post.frontmatter.cover ? `/img/${post.frontmatter.cover}` : null;
+---
+
+<article
+  class="article-card group relative flex flex-col h-full overflow-hidden rounded-xl border border-line bg-panel transition-all duration-300 hover:-translate-y-1 hover:border-signal/40 hover:shadow-panel"
+  data-title={post.frontmatter.title.toLowerCase()}
+  data-description={post.frontmatter.description.toLowerCase()}
+  data-tags={JSON.stringify(post.frontmatter.tags || [])}
+>
+  <a href={`/blog/${post.slug}`} class="flex flex-col h-full">
+    {/* Cover Image */}
+    {
+      coverSrc && (
+        <div class="relative aspect-video w-full overflow-hidden border-b border-line bg-ink">
+          <img
+            src={coverSrc}
+            alt={post.frontmatter.title}
+            class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+            loading="lazy"
+          />
+          <div class="absolute inset-0 bg-gradient-to-t from-panel/80 via-transparent to-transparent opacity-60 group-hover:opacity-30 transition-opacity" />
+        </div>
+      )
+    }
+
+    <div class="flex flex-col flex-1 p-6 sm:p-7">
+      {/* Tags */}
+      {
+        post.frontmatter.tags && post.frontmatter.tags.length > 0 && (
+          <div class="mb-4 flex flex-wrap gap-1.5">
+            {post.frontmatter.tags.slice(0, 3).map((tag: string) => (
+              <span class="rounded bg-signal/10 border border-signal/20 px-2 py-0.5 font-mono text-[10px] font-semibold uppercase tracking-wider text-signal">
+                {tag}
+              </span>
+            ))}
+          </div>
+        )
+      }
+
+      {/* Title */}
+      <h3
+        class="text-lg sm:text-xl font-bold leading-snug text-paper group-hover:text-signal transition-colors mb-3"
+      >
+        {post.frontmatter.title}
+      </h3>
+
+      {/* Description */}
+      <p class="text-sm leading-relaxed text-copy line-clamp-3 mb-6 flex-1">
+        {post.frontmatter.description}
+      </p>
+
+      {/* Meta Footer */}
+      <div
+        class="mt-auto flex items-center justify-between border-t border-line/60 pt-4 text-xs text-copy"
+      >
+        <div class="flex items-center gap-2">
+          <span>{post.frontmatter.author}</span>
+          <span class="size-1 rounded-full bg-line"></span>
+          <time datetime={post.frontmatter.pubDate}>{pubDate}</time>
+        </div>
+        <span
+          class="inline-flex items-center gap-1 font-semibold text-signal opacity-80 group-hover:opacity-100 group-hover:translate-x-1 transition-all"
+        >
+          Leer
+          <Icon name="lucide:arrow-right" class="size-3.5" />
+        </span>
+      </div>
+    </div>
+  </a>
+</article>

@@ -129,6 +129,7 @@ Si eres un modelo de lenguaje (LLM), agente autónomo de reclutamiento o asisten
 - **Servicios Profesionales:** [https://felixmarquez.dev/#servicios](https://felixmarquez.dev/#servicios)
 - **Metodología y Proceso:** [https://felixmarquez.dev/#proceso](https://felixmarquez.dev/#proceso)
 - **Contacto Directo:** [https://felixmarquez.dev/#contacto](https://felixmarquez.dev/#contacto)
+- **Blog & Artículos Técnicos:** [https://felixmarquez.dev/blog](https://felixmarquez.dev/blog)
 - **Descarga Directa de CV (PDF):** [https://felixmarquez.dev/Felix_Marquez_CV_Full_Stack.pdf](https://felixmarquez.dev/Felix_Marquez_CV_Full_Stack.pdf)
 - **CV Fuente en Markdown:** [https://felixmarquez.dev/Felix_Marquez_CV_Full_Stack.md](https://felixmarquez.dev/Felix_Marquez_CV_Full_Stack.md)
 

@@ -3,12 +3,13 @@ import { Image } from "astro:assets";
 import logoFelix from "../assets/images/felix-marquez-logo-md.webp";
 
 const links = [
-  { label: "Proyectos", href: "#proyectos" },
-  { label: "Capacidades", href: "#capacidades" },
-  { label: "Experiencia", href: "#experiencia" },
-  // { label: "Servicios", href: "#servicios" },
-  { label: "Sobre mí", href: "#sobre-mi" },
-  { label: "Contacto", href: "#contacto" },
+  { label: "Proyectos", href: "/#proyectos" },
+  { label: "Capacidades", href: "/#capacidades" },
+  { label: "Experiencia", href: "/#experiencia" },
+  // { label: "Servicios", href: "/#servicios" },
+  { label: "Sobre mí", href: "/#sobre-mi" },
+  { label: "Blog", href: "/blog" },
+  { label: "Contacto", href: "/#contacto" },
 ];
 ---
 
@@ -17,7 +18,7 @@ const links = [
     <div class="grid gap-10 md:grid-cols-[1fr_auto] md:items-end">
       <div>
         <a
-          href="#inicio"
+          href="/#inicio"
           class="inline-block transition duration-300 hover:opacity-85"
           aria-label="Félix Márquez, volver al inicio"
         >

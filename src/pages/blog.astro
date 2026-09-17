@@ -1,0 +1,43 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Navbar from "../components/Navbar.astro";
+import Footer from "../components/Footer.astro";
+import BlogHero from "../components/blog/BlogHero.astro";
+import BlogSection from "../components/blog/BlogSection.astro";
+import { BlogService } from "../services/blogService";
+
+const allTags = await BlogService.getTags();
+const allArticles = await BlogService.getAllArticles();
+
+const canonicalUrl = "https://felixmarquez.dev/blog";
+
+const jsonLd = JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "Blog",
+  name: "Blog Félix Márquez — Arquitectura & Desarrollo Web",
+  url: canonicalUrl,
+  description:
+    "Artículos técnicos, experiencias de producto y buenas prácticas en React, Next.js, Laravel, WordPress Headless, rendimiento web y arquitectura de software.",
+  publisher: {
+    "@type": "Person",
+    name: "Félix Márquez",
+    url: "https://felixmarquez.dev/",
+  },
+});
+---
+
+<Layout
+  title="Blog & Publicaciones Técnicas | Félix Márquez"
+  description="Artículos técnicos, arquitectura de software, rendimiento web, integraciones con Laravel y desarrollo con React y Next.js por Félix Márquez."
+  canonical={canonicalUrl}
+  ogTitle="Blog & Artículos Técnicos | Félix Márquez"
+  ogDescription="Conocimiento aplicado y análisis de ingeniería web, arquitecturas modernas y optimización."
+  jsonLd={jsonLd}
+>
+  <Navbar />
+  <main id="contenido" class="flex-1">
+    <BlogHero />
+    <BlogSection allArticles={allArticles} allTags={allTags} itemsPerPage={6} />
+  </main>
+  <Footer />
+</Layout>
